@@ -23,7 +23,7 @@ Este projeto de **Gerenciamento de Acesso** é desenvolvido com **Spring Boot 3*
 ### Passos
 Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/rodrigokferreira/genAccess.git
   ````
 ### Navegue até a pasta do projeto:
   ```bash
