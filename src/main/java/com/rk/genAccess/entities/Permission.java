@@ -6,8 +6,6 @@ import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.rk.genAccess.dto.UserDTO;
-
 @Document(collection = "permission")
 public class Permission implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -17,17 +15,15 @@ public class Permission implements Serializable{
 	private String permissionName;
 	
 	private ODS ods;
-	private UserDTO user;
 	
 	public Permission() {
 	}
 
-	public Permission(String id, String permissionName, ODS ods, UserDTO user) {
+	public Permission(String id, String permissionName, ODS ods) {
 		super();
 		this.id = id;
 		this.permissionName = permissionName;
 		this.ods = ods;
-		this.user = user;
 	}
 
 	public String getId() {
@@ -53,16 +49,6 @@ public class Permission implements Serializable{
 	public void setOds(ODS ods) {
 		this.ods = ods;
 	}
-	
-	public UserDTO getUser() {
-		return user;
-	}
-
-	public void setUser(UserDTO user) {
-		this.user = user;
-	}
-
-	
 
 	@Override
 	public int hashCode() {

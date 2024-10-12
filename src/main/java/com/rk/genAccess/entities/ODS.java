@@ -20,19 +20,17 @@ public class ODS implements Serializable{
 	private String task;
 	private Date validUntil;
 	
-	private Permission permission;	
 	private UserDTO user;
 	
 	public ODS() {
 	}
 
-	public ODS(String id, String location, String task, Date validUntil, Permission permission, UserDTO user) {
+	public ODS(String id, String location, String task, Date validUntil, UserDTO user) {
 		super();
 		this.id = id;
 		this.location = location;
 		this.task = task;
 		this.validUntil = validUntil;
-		this.permission = permission;
 		this.user = user;
 	}
 
@@ -66,14 +64,6 @@ public class ODS implements Serializable{
 
 	public void setValidUntil(Date validUntil) {
 		this.validUntil = validUntil;
-	}
-
-	public Permission getPermission() {
-		return permission;
-	}
-
-	public void setPermission(Permission permission) {
-		this.permission = permission;
 	}
 
 	public UserDTO getUser() {

@@ -39,13 +39,14 @@ public class instantiation implements CommandLineRunner{
 		
 		userRepository.saveAll(Arrays.asList(rodolfo, brucetoso));
 		
-		Permission p1 = new Permission(null, "Manutenção Divino", null, new UserDTO(rodolfo));
-		Permission p2 = new Permission(null, "Acesso ao Sistema", null, new UserDTO(brucetoso));
+		ODS ods1 = new ODS(null, "Praimar", "Manutenção Divino", new Date(), new UserDTO(rodolfo));
+		ODS ods2 = new ODS(null, "Miramar", "Vistoria", new Date(), new UserDTO(brucetoso));
+		odsRepository.saveAll(Arrays.asList(ods1, ods2));
 		
-        permissionRepository.saveAll(Arrays.asList(p1, p2));
+		Permission p1 = new Permission(null, "Manutenção Divino", ods1);
+		Permission p2 = new Permission(null, "Acesso ao Sistema", ods2);
 		
-		ODS ods = new ODS(null, "Praimar", "Manutenção", new Date(), p1, new UserDTO(rodolfo));
-		odsRepository.saveAll(Arrays.asList(ods));
+		permissionRepository.saveAll(Arrays.asList(p1, p2));
 		
 	}
 	
