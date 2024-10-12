@@ -3,26 +3,38 @@ package com.rk.genAccess.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.rk.genAccess.dto.UserDTO;
+
+@Document(collection = "permission")
 public class Permission implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	@Id
+	private String id;
 	private String permissionName;
+	
+	private ODS ods;
+	private UserDTO user;
 	
 	public Permission() {
 	}
 
-	public Permission(Long id, String permissionName) {
+	public Permission(String id, String permissionName, ODS ods, UserDTO user) {
 		super();
 		this.id = id;
 		this.permissionName = permissionName;
+		this.ods = ods;
+		this.user = user;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -33,6 +45,24 @@ public class Permission implements Serializable{
 	public void setPermissionName(String permissionName) {
 		this.permissionName = permissionName;
 	}
+	
+	public ODS getOds() {
+		return ods;
+	}
+
+	public void setOds(ODS ods) {
+		this.ods = ods;
+	}
+	
+	public UserDTO getUser() {
+		return user;
+	}
+
+	public void setUser(UserDTO user) {
+		this.user = user;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
@@ -50,5 +80,7 @@ public class Permission implements Serializable{
 		Permission other = (Permission) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
 	
 }

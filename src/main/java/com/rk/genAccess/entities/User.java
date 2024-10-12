@@ -1,6 +1,7 @@
 package com.rk.genAccess.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
@@ -16,6 +17,8 @@ public class User implements Serializable{
 	private String name;
 	private String email;
 	private String password;
+	
+	private List<ODS> orders;
 	
 	public User() {
 	}
@@ -59,6 +62,14 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public List<ODS> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<ODS> orders) {
+		this.orders = orders;
+	}
 
 	@Override
 	public int hashCode() {
@@ -76,7 +87,5 @@ public class User implements Serializable{
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 	
 }

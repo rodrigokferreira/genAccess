@@ -4,21 +4,29 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.rk.genAccess.dto.UserDTO;
+
+@Document(collection = "orderService")
 public class ODS implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	@Id
+	private String id;
+	
 	private String location;
 	private String task;
 	private Date validUntil;
 	
 	private Permission permission;	
-	private User user;
+	private UserDTO user;
 	
 	public ODS() {
 	}
 
-	public ODS(Long id, String location, String task, Date validUntil, Permission permission, User user) {
+	public ODS(String id, String location, String task, Date validUntil, Permission permission, UserDTO user) {
 		super();
 		this.id = id;
 		this.location = location;
@@ -28,11 +36,11 @@ public class ODS implements Serializable{
 		this.user = user;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -68,11 +76,11 @@ public class ODS implements Serializable{
 		this.permission = permission;
 	}
 
-	public User getUser() {
+	public UserDTO getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserDTO user) {
 		this.user = user;
 	}
 
